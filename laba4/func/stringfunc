@@ -2,7 +2,7 @@ package org.example;
 
 public class StringFunc {
 
-    public static int IndexOf(String str, char substr) {
+    public static int indexOf(String str, char substr) {
         int len_str = str.length();
         char[] chars = str.toCharArray();
 
@@ -14,7 +14,7 @@ public class StringFunc {
         return -1;
     }
 
-    public static String Replace(String str, char replace1, char replace2){
+    public static String replace(String str, char replace1, char replace2){
         int len_str = str.length();
         char[] chars = str.toCharArray();
 
@@ -27,7 +27,7 @@ public class StringFunc {
         return String.valueOf(chars);
     }
 
-    public static String Reverse(String str){
+    public static String reverse(String str){
         char[] chars = str.toCharArray();
         char[] new_str = new char[str.length()];
 
@@ -46,7 +46,7 @@ public class StringFunc {
 
         return newArr;
     }
-    public static String Append(String str, char element){
+    public static String append(String str, char element){
         char[] chars = str.toCharArray();
         char[] newArr = increaseArraySize(chars, 1);
         newArr[str.length()] = element;
@@ -54,12 +54,3 @@ public class StringFunc {
     }
 }
 
-
-//    public static void main(String[] args) {
-//        String str = "Hello, world!";
-//        char substr = 'l';
-//        System.out.println(IndexOf(str,substr));
-//        char[] chars = str.toCharArray();
-//        System.out.println(chars[1]);
-//    }
-//    }
