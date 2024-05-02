@@ -8,43 +8,81 @@ public class TestMathFunc {
     // Тест для метода func
     @Test
     public void testFunc() {
-        double result = MathFunc.func(2);
-        assertEquals(2.0, result, 0.001);
+        //arrange - создание нужных объектов
+        final double DELTA = 1e-3;
+        final double NUMBER = 2;
+        double expectedResult = 2;
+        double actualResult;
+
+        //act - непосредственно обращение к тестируемому методу
+        actualResult = MathFunc.func(NUMBER);
+
+        //assert - сравнение фактического и ожидаемого результатов
+        assertEquals(expectedResult, actualResult, DELTA);
     }
 
     // Тест для метода Df
     @Test
     public void testDf() {
-        double result = MathFunc.Df(2);
-        assertEquals(4.0, result, 0.001);
+        //arrange - создание нужных объектов
+        final double DELTA = 1e-3;
+        final double NUMBER = 2;
+        double expectedResult = 4;
+        double actualResult;
+
+        //act - непосредственно обращение к тестируемому методу
+        actualResult = MathFunc.df(NUMBER);
+
+        //assert - сравнение фактического и ожидаемого результатов
+        assertEquals(expectedResult, actualResult, DELTA);
     }
 
     // Тест для метода Dichotomy
     @Test
     public void testDichotomy() {
-        double result = MathFunc.Dichotomy(0, 3);
-        assertEquals(1.4142, result, 0.001);
+        //arrange - создание нужных объектов
+        final double DELTA = 1e-3;
+        final double NUMBER_A = 0;
+        final double NUMBER_B = 3;
+        double expectedResult = 1.4142;
+        double actualResult;
+
+        //act - непосредственно обращение к тестируемому методу
+        actualResult = MathFunc.dichotomy(NUMBER_A, NUMBER_B);
+
+        //assert - сравнение фактического и ожидаемого результатов
+        assertEquals(expectedResult, actualResult, DELTA);
     }
 
     // Тест для метода QuickSort
     @Test
     public void testQuickSort() {
+        //arrange - создание нужных объектов
         int[] testArr = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
         int[] expectedResult = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};
 
-        // Сортировка и проверка массива
-        MathFunc.QuickSort(testArr);
+        final int LOW = 0;
+        final int HIGH = 10;
+
+        //act - непосредственно обращение к тестируемому методу
+        MathFunc.quickSort(testArr, LOW, HIGH);
+
+        //assert - сравнение фактического и ожидаемого результатов
         assertArrayEquals(expectedResult, testArr);
     }
 
     // Тест для метода SelectionSort
     @Test
     public void testSelectionSort() {
+        //arrange - создание нужных объектов
         int[] testArr = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
         int[] expectedResult = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};
 
-        // Сортировка и проверка массива
-        MathFunc.SelectionSort(testArr);
+
+        //act - непосредственно обращение к тестируемому методу
+        MathFunc.selectionSort(testArr);
+
+        //assert - сравнение фактического и ожидаемого результатов
         assertArrayEquals(expectedResult, testArr);
     }
 }
