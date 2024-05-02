@@ -1,31 +1,39 @@
 package org.example;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+// Класс для тестирования методов класса StringFunc
 public class TestStringFunc {
-
+    
+    // Тест для метода IndexOf
     @Test
     public void testIndexOf() {
+        // Поиск индекса символа 'l' в строке "Hello, world!"
         int result = StringFunc.IndexOf("Hello, world!", 'l');
-        assertEquals(2, result);
+        assertEquals(2, result); // Ожидаемый результат - индекс 2
     }
-
+    
+    // Тест для метода Replace
     @Test
     public void testReplace() {
+        // Замена всех символов 'o' на '0' в строке "Hello, world!"
         String result = StringFunc.Replace("Hello, world!", 'o', '0');
-        assertEquals("Hell0, w0rld!", result);
+        assertEquals("Hell0, w0rld!", result); // Ожидаемый результат - "Hell0, w0rld!"
     }
-
+    
+    // Тест для метода Reverse
     @Test
     public void testReverse() {
+        // Переворот строки "Hello, world!"
         String result = StringFunc.Reverse("Hello, world!");
-        assertEquals("!dlrow ,olleH", result);
+        assertEquals("!dlrow ,olleH", result); // Ожидаемый результат - "!dlrow ,olleH"
     }
-
+    
+    // Тест для метода Append
     @Test
     public void testAppend() {
+        // Добавление символа '!' в конец строки "Hello, world"
         String result = StringFunc.Append("Hello, world", '!');
-        assertEquals("Hello, world!", result);
+        assertEquals("Hello, world!", result); // Ожидаемый результат - "Hello, world!"
     }
 }
