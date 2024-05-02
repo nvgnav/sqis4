@@ -1,23 +1,20 @@
 package org.example;
 
-import java.util.Arrays;
-
-import static java.lang.Math.E;
 import static java.lang.Math.abs;
 
 
 public class MathFunc {
 
     public static double func(double x){
-        return x*x -2;
+        return x*x - 2;
     }
 
-    public static double Df(double x){
+    public static double df(double x){
         final double EPS = 1e-4;
         return (func(x + EPS) - func(x - EPS)) / (2 * EPS);
     }
 
-    public static double Dichotomy(double a, double b){
+    public static double dichotomy(double a, double b){
         final double EPS = 1e-4;
 
         double c = 0;
@@ -35,7 +32,7 @@ public class MathFunc {
         return c;
     }
 
-    public static void QuickSort(int[] sortArr , int low, int high) {
+    public static void quickSort(int[] sortArr , int low, int high) {
 
         if (sortArr.length == 0 || low >= high) return;
 
@@ -58,14 +55,14 @@ public class MathFunc {
         }
         // вызов рекурсии для сортировки левой и правой части
         if (low < j) {
-            QuickSort(sortArr, low, j);
+            quickSort(sortArr, low, j);
         }
         if (high > i){
-            QuickSort(sortArr, i, high);
+            quickSort(sortArr, i, high);
         }
     }
 
-    public static void SelectionSort(int[] sortArr) {
+    public static void selectionSort(int[] sortArr) {
         for (int i = 0; i < sortArr.length; i++) {
             int pos = i;
             int min = sortArr[i];
@@ -83,22 +80,5 @@ public class MathFunc {
         }
     }
 
-    //Перегруженный метод
-    public static void QuickSort(int[] arr){
-        QuickSort(arr, 0, arr.length - 1);
-    }
-
-//    public static void main(String[] args){
-//        int[] x = { 8, 0, 4, 7, 3, 7, 10, 12, -3 };
-//        System.out.println("Было");
-//        System.out.println(Arrays.toString(x));
-//
-//        int low = 0;
-//        int high = x.length - 1;
-//
-//        QuickSort(x, low, high);
-//        System.out.println("Стало");
-//        System.out.println(Arrays.toString(x));
-//    }
 
 }
