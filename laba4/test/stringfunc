@@ -1,0 +1,31 @@
+package org.example;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class TestStringFunc {
+
+    @Test
+    public void testIndexOf() {
+        int result = StringFunc.IndexOf("Hello, world!", 'l');
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testReplace() {
+        String result = StringFunc.Replace("Hello, world!", 'o', '0');
+        assertEquals("Hell0, w0rld!", result);
+    }
+
+    @Test
+    public void testReverse() {
+        String result = StringFunc.Reverse("Hello, world!");
+        assertEquals("!dlrow ,olleH", result);
+    }
+
+    @Test
+    public void testAppend() {
+        String result = StringFunc.Append("Hello, world", '!');
+        assertEquals("Hello, world!", result);
+    }
+}
