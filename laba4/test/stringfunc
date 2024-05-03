@@ -4,36 +4,78 @@ import static org.junit.Assert.*;
 
 // Класс для тестирования методов класса StringFunc
 public class TestStringFunc {
-    
-    // Тест для метода IndexOf
+
     @Test
     public void testIndexOf() {
-        // Поиск индекса символа 'l' в строке "Hello, world!"
-        int result = StringFunc.IndexOf("Hello, world!", 'l');
-        assertEquals(2, result); // Ожидаемый результат - индекс 2
+        // arrange - создание нужных объектов
+        final String STR = "Hello, world!";
+        final char SUBSTR = 'l';
+        int expectedResult = 2;
+        int actualResult;
+
+        // act - непосредственно обращение к тестируемому методу
+        actualResult = StringFunc.indexOf(STR, SUBSTR);
+
+        // assert - сравнение фактического и ожидаемого результатов
+        assertEquals(expectedResult, actualResult); // Ожидаемый результат - индекс 2
     }
-    
+
+    @Test
+    public void testIndexOf_Negative() {
+        // Строка, в которой ищем символ
+        final String STR = "Hello, world!";
+        final char SUBSTR = 'z';
+        int expectedResult = -1;
+        int actualResult;
+
+        actualResult = StringFunc.indexOf(STR, SUBSTR);
+
+        assertEquals(expectedResult, actualResult);
+    }
+
     // Тест для метода Replace
     @Test
     public void testReplace() {
         // Замена всех символов 'o' на '0' в строке "Hello, world!"
-        String result = StringFunc.Replace("Hello, world!", 'o', '0');
-        assertEquals("Hell0, w0rld!", result); // Ожидаемый результат - "Hell0, w0rld!"
+        final String STR = "Hello, world!";
+        final String expectedResult = "Hell0, w0rld!";
+
+        String actualResult = StringFunc.replace(STR, 'o', '0');
+
+        assertEquals(expectedResult, actualResult);
     }
-    
+
     // Тест для метода Reverse
     @Test
     public void testReverse() {
         // Переворот строки "Hello, world!"
-        String result = StringFunc.Reverse("Hello, world!");
-        assertEquals("!dlrow ,olleH", result); // Ожидаемый результат - "!dlrow ,olleH"
+        final String STR = "Hello, world!";
+        final String expectedResult = "!dlrow ,olleH";
+
+        String actualResult = StringFunc.reverse(STR);
+
+        assertEquals(expectedResult, actualResult);
     }
-    
+
     // Тест для метода Append
     @Test
     public void testAppend() {
-        // Добавление символа '!' в конец строки "Hello, world"
-        String result = StringFunc.Append("Hello, world", '!');
-        assertEquals("Hello, world!", result); // Ожидаемый результат - "Hello, world!"
+        // Добавление символа '!' в конец строки "Hello, world" assertEquals("Hello, world!", result); // Ожидаемый результат - "Hello, world!"
+        final String STR = "Hello, world";
+        final char ELEMENT = '!';
+        final String expectedResult = "Hello, world!";
+
+        String actualResult = StringFunc.append(STR, ELEMENT);
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void testIncreaseArraySize() {
+        char[] arr = {'a', 'b', 'c'};
+        int size = 2;
+        char[] expectedResult = {'a', 'b', 'c', '\u0000', '\u0000'};
+        char[] actualResult = StringFunc.increaseArraySize(arr, size);
+        assertArrayEquals(expectedResult, actualResult);
     }
 }
