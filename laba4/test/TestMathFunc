@@ -71,6 +71,20 @@ public class TestMathFunc {
         assertArrayEquals(expectedResult, testArr);
     }
 
+    @Test
+    public void testQuickSort_Negative() {
+
+        int[] testArr = {};
+        int[] expectedResult = {};
+        final int LOW = 0;
+        final int HIGH = 0;
+
+        MathFunc.quickSort(testArr, LOW, HIGH);
+
+        assertArrayEquals(expectedResult, testArr);
+    }
+
+
     // Тест для метода SelectionSort
     @Test
     public void testSelectionSort() {
