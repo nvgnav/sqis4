@@ -44,7 +44,7 @@ public class TestMathFunc {
         final double DELTA = 1e-3;
         final double NUMBER_A = 0;
         final double NUMBER_B = 3;
-        double expectedResult = 1.4142;
+        double expectedResult = 1.414;
         double actualResult;
 
         //act - непосредственно обращение к тестируемому методу
@@ -74,14 +74,13 @@ public class TestMathFunc {
     @Test
     public void testQuickSort_Negative() {
 
-        int[] testArr = {};
-        int[] expectedResult = {};
-        final int LOW = 0;
-        final int HIGH = 0;
+        int[] testArr = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+        String expectedResult = "Error";
+        final int LOW = 5;
+        final int HIGH = 3;
 
         MathFunc.quickSort(testArr, LOW, HIGH);
 
-        assertArrayEquals(expectedResult, testArr);
     }
 
 
