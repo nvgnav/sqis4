@@ -1,0 +1,32 @@
+package org.example;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import java.time.Duration;
+import java.util.List;
+
+public class Tester {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\allan\\OneDrive\\Рабочий стол\\EdgeDriver\\msedgedriver.exe");
+        WebDriver drG = new EdgeDriver();
+
+        drG.get("https://testng.org/");
+        drG.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        System.out.println("Сайт: " + drG.getTitle());
+
+        List<WebElement> tocLinks = drG.findElements(By.cssSelector("#toc ul li a"));
+        System.out.println("Список названий ссылок содержания:");
+        for (WebElement tocLink : tocLinks) {
+            System.out.println(tocLink.getAttribute("textContent"));
+        }
+
+        drG.findElement(By.xpath("//a[@href='#_test_results']")).click();
+
+        drG.findElement(By.cssSelector("a[href='#_the_testng_textbook_next_generation_java_testing']")).click();
+
+        drG.close();
+    }
+}
