@@ -1,0 +1,39 @@
+package org.example;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import java.time.Duration;
+import java.util.List;
+
+public class K_vrachu {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\allan\\OneDrive\\Рабочий стол\\ChromeDriver\\chromedriver.exe");
+        WebDriver chromeDriver = new ChromeDriver();
+
+        chromeDriver.get("https://k-vrachu.ru/");
+        chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // неявное ожидание
+        System.out.println("Заголовок сайта: " + chromeDriver.getTitle());
+
+        List<WebElement> tocLinks = chromeDriver.findElements(By.xpath("//div[@class='wrapper']"));
+        System.out.println("Список названий ссылок содержания:");
+        for (WebElement tocLink : tocLinks) {
+            System.out.println(tocLink.getAttribute("textContent"));
+        }
+
+
+        //chromeDriver.findElement(By.cssSelector("#div p a")).click();
+/*/html/body/div[2]/div[4]/div/div[5]/p/a[2]
+        body > div.bodyWrapper > div.cap > div > div.person > p > a.register
+                /html/body/div[2]/div[4]/div/div[5]/p/a[2]
+                /html/body*/
+        chromeDriver.findElement(By.xpath("/html/body/div[2]/div[4]/div/div[5]/p/a[2]")).click();
+
+        chromeDriver.findElement(By.xpath("/html/body/div[4]/div[2]/div/div[2]/ul/li[3]/a")).click();
+
+
+        chromeDriver.close();
+    }
+}
