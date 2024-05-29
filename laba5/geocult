@@ -1,0 +1,33 @@
+package org.example;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import java.time.Duration;
+import java.util.List;
+
+public class Geocult {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\allan\\OneDrive\\Рабочий стол\\ChromeDriver\\chromedriver.exe");
+        WebDriver chromeDriver = new ChromeDriver();
+
+        chromeDriver.get("https://geocult.ru/natalnaya-karta-onlayn-raschet");
+        chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // неявное ожидание
+        System.out.println("Заголовок сайта: " + chromeDriver.getTitle());
+
+        List<WebElement> tocLinks = chromeDriver.findElements(By.xpath("//div[@class='widget-content']"));
+        System.out.println("Список названий ссылок содержания:");
+        for (WebElement tocLink : tocLinks) {
+            System.out.println(tocLink.getAttribute("textContent"));
+        }
+
+        chromeDriver.findElement(By.xpath("//a[@href='https://geocult.ru/natalnaya-karta']")).click();
+        chromeDriver.findElement(By.cssSelector("a[href='https://geocult.ru/vodoley/vodoley-harakteristika']")).click();
+
+
+
+
+        chromeDriver.close();
+    }}
